@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>О проекте · Tinnitus Matcher</title>
+  <style>
+    :root {
+      --bg: #0d1117; --bg-card: #161b22; --border: #30363d;
+      --text: #c9d1d9; --muted: #8b949e; --accent: #58a6ff; --green: #3fb950;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.7; padding: 2rem 1rem;
+    }
+    .container { max-width: 760px; margin: 0 auto; }
+    h1 { font-size: 2.2rem; text-align: center; margin-bottom: .5rem; }
+    h1 .accent { color: var(--accent); }
+    .subtitle { text-align: center; color: var(--muted); margin-bottom: 2.5rem; }
+    section {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.6rem 1.8rem; margin-bottom: 1.4rem;
+    }
+    h2 { font-size: 1.15rem; color: var(--accent); margin-bottom: .8rem; }
+    p, li { color: var(--text); margin-bottom: .6rem; }
+    ul { padding-left: 1.4rem; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .btn {
+      display: inline-block; background: var(--green); color: #0d1117;
+      font-weight: 600; padding: .65rem 1.4rem; border-radius: 8px; margin-top: .6rem;
+    }
+    .btn:hover { text-decoration: none; filter: brightness(1.1); }
+    .disclaimer { font-size: .9rem; color: var(--muted); }
+    .disclaimer strong { color: var(--text); }
+    .law { font-size: .85rem; color: var(--muted); }
+    footer { text-align: center; color: var(--muted); font-size: .85rem; margin-top: 2rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Tinnitus <span class="accent">Matcher</span></h1>
+    <p class="subtitle">О проекте, авторе и правовом статусе</p>
+
+    <section>
+      <h2>👤 Об авторе</h2>
+      <p>Привет! Меня зовут Сергей. Я энтузиаст и разработчик-самоучка — без медицинского и формального технического образования.</p>
+      <p>Уже <strong>40 лет я живу с тиннитусом</strong> — постоянным шумом в ушах. Это приложение я сделал в первую очередь <strong>для себя</strong>: чтобы подбирать маскирующий шум, максимально близкий к собственному тиннитусу, и искать способы борьбы с ним.</p>
+      <p>Инструментом может воспользоваться любой — возможно, он поможет и вам лучше понять свой шум и подобрать звуки, которые его облегчают.</p>
+    </section>
+
+    <section>
+      <h2>🤖 TinInfoBot — мой второй проект</h2>
+      <p>Помимо генератора шума, я разрабатываю Telegram-бота <strong>TinInfoBot</strong> — информационного помощника для людей с тиннитусом:</p>
+      <ul>
+        <li>Отвечает на вопросы о тиннитусе на основе научной базы статей PubMed (RAG-поиск по проверенным источникам);</li>
+        <li>Помогает разобраться в методах терапии: TRT, CBT, маскировка, слухопротезирование;</li>
+        <li>Работает в бета-режиме: доступ открыт для ограниченной группы тестеров.</li>
+      </ul>
+      <p>Подключиться к бета-тесту можно прямо в боте командой <code style="background:var(--bg);padding:.15rem .4rem;border-radius:4px;">/register_beta</code>.</p>
+      <a class="btn" href="https://t.me/TinInfoBot" target="_blank" rel="noopener">Открыть TinInfoBot в Telegram</a>
+    </section>
+
+    <section class="disclaimer">
+      <h2>⚖️ Дисклеймер и правовая информация</h2>
+      <p><strong>Tinnitus Matcher — не медицинское изделие.</strong> Приложение не зарегистрировано как медицинское изделие (Федеральный закон № 323-ФЗ «Об основах охраны здоровья граждан в РФ», ст. 38), не предназначено для диагностики, лечения, профилактики заболеваний и не заменяет консультацию врача-сурдолога или оториноларинголога.</p>
+      <p><strong>Персональные данные не собираются.</strong> Все настройки, пресеты и параметры звука обрабатываются исключительно локально в браузере пользователя и не передаются на сервер. Приложение не содержит форм регистрации, аналитических систем и систем отслеживания. В связи с этим требования Федерального закона № 152-ФЗ «О персональных данных» (включая ст. 10 о специальных категориях данных и ст. 18 ч. 5 о локализации баз данных) к настоящему приложению не применяются.</p>
+      <p><strong>Не является медицинской рекомендацией.</strong> Информация, предоставляемая ботом TinInfoBot, носит справочно-образовательный характер, основана на открытых научных публикациях (PubMed) и не является медицинской консультацией или назначением. Перед применением любых методов проконсультируйтесь со специалистом.</p>
+      <p class="law">Нормативные ссылки: ФЗ № 323-ФЗ от 21.11.2011 «Об основах охраны здоровья граждан в Российской Федерации» (ст. 38 — медицинские изделия) · ФЗ № 152-ФЗ от 27.07.2006 «О персональных данных» · Постановление Правительства РФ № 1416 от 27.12.2012 «Об утверждении Правил государственной регистрации медицинских изделий».</p>
+    </section>
+
+    <footer>
+      <a href="/">← Вернуться к Tinnitus Matcher</a>
+    </footer>
+  </div>
+</body>
+</html>

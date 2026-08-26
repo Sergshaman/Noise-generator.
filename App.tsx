@@ -414,6 +414,9 @@ const App: React.FC = () => {
             </div>
           </div>
         </main>
+        <footer className="text-center text-xs text-gray-600 py-6">
+          <a href="/about.html" className="text-blue-accent hover:underline">О проекте · Дисклеймер</a>
+        </footer>
       </div>
     </div>
   );
