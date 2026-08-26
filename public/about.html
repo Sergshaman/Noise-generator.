@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/icon.png" />
   <title>О проекте · Tinnitus Matcher</title>
   <style>
     :root {
@@ -25,7 +26,7 @@
     }
     h2 { font-size: 1.15rem; color: var(--accent); margin-bottom: .8rem; }
     p, li { color: var(--text); margin-bottom: .6rem; }
-    ul { padding-left: 1.4rem; }
+    ul, ol { padding-left: 1.4rem; }
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
     .btn {
@@ -33,10 +34,25 @@
       font-weight: 600; padding: .65rem 1.4rem; border-radius: 8px; margin-top: .6rem;
     }
     .btn:hover { text-decoration: none; filter: brightness(1.1); }
+    .btn-blue { background: var(--accent); }
+    .btn-outline {
+      background: transparent; border: 1px solid var(--accent); color: var(--accent);
+    }
+    .btn-row { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: .8rem; }
     .disclaimer { font-size: .9rem; color: var(--muted); }
     .disclaimer strong { color: var(--text); }
     .law { font-size: .85rem; color: var(--muted); }
+    .warn {
+      background: rgba(63,185,80,.08); border: 1px solid rgba(63,185,80,.3);
+      border-radius: 8px; padding: .8rem 1rem; font-size: .9rem; margin-top: .8rem;
+    }
+    .step-num {
+      display: inline-block; background: var(--accent); color: #0d1117;
+      font-weight: 700; border-radius: 50%; width: 1.6em; height: 1.6em;
+      line-height: 1.6em; text-align: center; margin-right: .4rem; font-size: .85em;
+    }
     footer { text-align: center; color: var(--muted); font-size: .85rem; margin-top: 2rem; }
+    code { background: var(--bg); padding: .15rem .4rem; border-radius: 4px; }
   </style>
 </head>
 <body>
@@ -46,28 +62,72 @@
 
     <section>
       <h2>👤 Об авторе</h2>
-      <p>Привет! Меня зовут Сергей. Я энтузиаст и разработчик-самоучка — без медицинского и формального технического образования.</p>
-      <p>Уже <strong>40 лет я живу с тиннитусом</strong> — постоянным шумом в ушах. Это приложение я сделал в первую очередь <strong>для себя</strong>: чтобы подбирать маскирующий шум, максимально близкий к собственному тиннитусу, и искать способы борьбы с ним.</p>
-      <p>Инструментом может воспользоваться любой — возможно, он поможет и вам лучше понять свой шум и подобрать звуки, которые его облегчают.</p>
+      <p>Привет! Меня зовут Сергей. Я энтузиаст и разработчик-самоучка — без медицинского и IT образования.</p>
+      <p>Уже <strong>40 лет я живу с тиннитусом</strong> и ищу способы борьбы с ним. Это приложение я сделал в первую очередь для себя.</p>
+      <p>Tinnitus Matcher поможет подобрать маскирующий шум, максимально близкий к собственному тиннитусу. Инструментом может воспользоваться любой желающий.</p>
+      <p style="margin-top:1rem;">Для любителей кода — проект открыт:</p>
+      <div class="btn-row">
+        <a class="btn btn-outline" href="https://github.com/Sergshaman/Noise-generator" target="_blank" rel="noopener">💻 GitHub-проект</a>
+      </div>
     </section>
 
     <section>
-      <h2>🤖 TinInfoBot — мой второй проект</h2>
-      <p>Помимо генератора шума, я разрабатываю Telegram-бота <strong>TinInfoBot</strong> — информационного помощника для людей с тиннитусом:</p>
+      <h2>🎛 Как пользоваться: с чего начать</h2>
+      <p>Оптимальная последовательность подбора — от простого к тонкой настройке:</p>
+      <ol>
+        <li><span class="step-num">1</span><strong>Тип шума.</strong> Начните с White. Если он кажется резким — переключите на Brown (мягче) или Pink-подобные варианты. У каждого свой характер: Brown лучше маскирует низкочастотный гул, White/Violet — высокочастотный звон.</li>
+        <li><span class="step-num">2</span><strong>Уровень шума.</strong> Правило тиннитус-маскировки: шум должен быть <em>чуть тише</em> вашего шума в голове — так он не заглушает, а «смешивается» с ним. Начните с −20 дБ и двигайтесь вверх/вниз до эффекта облегчения.</li>
+        <li><span class="step-num">3</span><strong>Tone Overlay (тон).</strong> Включите Tone Component и подберите частоту, совпадающую с вашим тиннитусом (обычно 4000–8000 Гц). Затем снизьте громкость тона до едва слышимой.</li>
+        <li><span class="step-num">4</span><strong>Band Emphasis (полоса).</strong> Если чистый тон не попадает в ваш шум — расширьте акцент на полосу: частота центра ≈ частота тиннитуса, Q-factor 10–15, Gain от −6 до +6 дБ.</li>
+        <li><span class="step-num">5</span><strong>A/B сравнение и пресеты.</strong> Настройте два варианта (кнопки Set A / Set B) и переключайтесь между ними. Понравившийся вариант сохраните кнопкой Save.</li>
+        <li><span class="step-num">6</span><strong>Ear Routing.</strong> Если тиннитус односторонний, сдвиньте панораму в сторону большего уха — маскировка работает эффективнее.</li>
+      </ol>
+      <div class="warn">🎧 Слушайте на умеренной громкости, делайте перерывы. Цель — облегчение, а не заглушение слуха.</div>
+    </section>
+
+    <section>
+      <h2>💬 Обратная связь</h2>
+      <p>Нашли баг, хотите предложить улучшение или просто поделиться опытом? Буду рад любому отклику:</p>
       <ul>
-        <li>Отвечает на вопросы о тиннитусе на основе научной базы статей PubMed (RAG-поиск по проверенным источникам);</li>
-        <li>Помогает разобраться в методах терапии: TRT, CBT, маскировка, слухопротезирование;</li>
-        <li>Работает в бета-режиме: доступ открыт для ограниченной группы тестеров.</li>
+        <li>Через бота <strong>TinnInfo</strong> — напишите ему сообщение напрямую (кнопка ниже);</li>
+        <li>Через <a href="https://github.com/Sergshaman/Noise-generator/issues" target="_blank" rel="noopener">Issues на GitHub</a> — для любителей кода;</li>
+        <li>Отзыв можно оставить и в Telegram: <a href="https://t.me/TinnInfoBot" target="_blank" rel="noopener">@TinnInfoBot</a>.</li>
       </ul>
-      <p>Подключиться к бета-тесту можно прямо в боте командой <code style="background:var(--bg);padding:.15rem .4rem;border-radius:4px;">/register_beta</code>.</p>
-      <a class="btn" href="https://t.me/TinInfoBot" target="_blank" rel="noopener">Открыть TinInfoBot в Telegram</a>
+    </section>
+
+    <section>
+      <h2>🤖 TinnInfo — бот-помощник по тиннитусу</h2>
+      <p>Мой второй проект — Telegram-бот <strong>TinnInfo</strong>, информационный помощник для людей с тиннитусом:</p>
+      <ul>
+        <li>Отвечает на вопросы о тиннитусе на основе базы научных статей PubMed (проверенные источники, а не «интернет»);</li>
+        <li>Помогает разобраться в методах терапии: TRT, CBT, маскировка, слухопротезирование;</li>
+        <li>Работает в бета-режиме: подключение командой <code>/register_beta</code>.</li>
+      </ul>
+      <div class="btn-row">
+        <a class="btn" href="https://t.me/TinnInfoBot" target="_blank" rel="noopener">✈️ Открыть TinnInfo в Telegram</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>💖 Поддержать проект</h2>
+      <p>Ваш донат поможет:</p>
+      <ul>
+        <li>🖥 Оплатить серверы и API;</li>
+        <li>📚 Расширить базу статей;</li>
+        <li>🔧 Улучшить качество ответов.</li>
+      </ul>
+      <p class="warn">⚠️ Донаты добровольны и не являются оплатой медицинских услуг.</p>
+      <div class="btn-row">
+        <a class="btn btn-blue" href="https://boosty.to/tinninfos" target="_blank" rel="noopener">🔵 Boosty</a>
+        <a class="btn" style="background:#f97316;color:#0d1117;" href="https://www.donationalerts.com/r/sergshaman" target="_blank" rel="noopener">🟠 DonationAlerts</a>
+      </div>
     </section>
 
     <section class="disclaimer">
       <h2>⚖️ Дисклеймер и правовая информация</h2>
       <p><strong>Tinnitus Matcher — не медицинское изделие.</strong> Приложение не зарегистрировано как медицинское изделие (Федеральный закон № 323-ФЗ «Об основах охраны здоровья граждан в РФ», ст. 38), не предназначено для диагностики, лечения, профилактики заболеваний и не заменяет консультацию врача-сурдолога или оториноларинголога.</p>
       <p><strong>Персональные данные не собираются.</strong> Все настройки, пресеты и параметры звука обрабатываются исключительно локально в браузере пользователя и не передаются на сервер. Приложение не содержит форм регистрации, аналитических систем и систем отслеживания. В связи с этим требования Федерального закона № 152-ФЗ «О персональных данных» (включая ст. 10 о специальных категориях данных и ст. 18 ч. 5 о локализации баз данных) к настоящему приложению не применяются.</p>
-      <p><strong>Не является медицинской рекомендацией.</strong> Информация, предоставляемая ботом TinInfoBot, носит справочно-образовательный характер, основана на открытых научных публикациях (PubMed) и не является медицинской консультацией или назначением. Перед применением любых методов проконсультируйтесь со специалистом.</p>
+      <p><strong>Не является медицинской рекомендацией.</strong> Информация, предоставляемая ботом TinnInfo, носит справочно-образовательный характер, основана на открытых научных публикациях (PubMed) и не является медицинской консультацией или назначением. Перед применением любых методов проконсультируйтесь со специалистом.</p>
       <p class="law">Нормативные ссылки: ФЗ № 323-ФЗ от 21.11.2011 «Об основах охраны здоровья граждан в Российской Федерации» (ст. 38 — медицинские изделия) · ФЗ № 152-ФЗ от 27.07.2006 «О персональных данных» · Постановление Правительства РФ № 1416 от 27.12.2012 «Об утверждении Правил государственной регистрации медицинских изделий».</p>
     </section>
 
